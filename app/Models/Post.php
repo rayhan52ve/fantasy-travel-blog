@@ -11,11 +11,7 @@ class Post extends Model
     protected $guarded = [];
 
     public function admin(){
-        return $this->belongsTo(Admin::class,'created_by');
-    }
-
-    public function user(){
-        return $this->belongsTo(User::class,'created_by');
+        return $this->belongsTo(Admin::class,'admin_id');
     }
 
     public function category(){
@@ -32,7 +28,7 @@ class Post extends Model
 
     protected $fillable = [
         'category_id',
-        'created_by',
+        'admin_id',
         'title',
         'content',
         'image',

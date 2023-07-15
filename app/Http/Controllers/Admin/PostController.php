@@ -3,8 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Models\Post;
-use App\Models\User; 
+// use App\Models\User; 
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -59,9 +60,9 @@ class PostController extends Controller
 
 
 
-    public function getuser(){
-        $user = User::latest()->get();
-        return response()->json($user);
+    public function getadmin(){
+        $admin = Admin::latest()->get();
+        return response()->json($admin);
     }
 
     /**
@@ -90,7 +91,7 @@ class PostController extends Controller
             }
         $data = [
             'category_id' => $request->category_id,
-            'created_by' => Auth::guard('admin')->user()->id,
+            'admin_id' => Auth::guard('admin')->user()->id,
             'title' => $request->title,
             'content' => $request->content,
             'video' => $request->video,
@@ -140,7 +141,7 @@ class PostController extends Controller
             }
             $data = [
                 'category_id' => $request->category_id,
-                'created_by' => Auth::guard('admin')->user()->id,
+                'admin_id' => Auth::guard('admin')->user()->id,
                 'title' => $request->title,
                 'content' => $request->content,
                 'video' => $request->video,

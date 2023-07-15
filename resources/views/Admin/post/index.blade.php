@@ -160,7 +160,7 @@
       },
       {'title':'Category','name':'category.name','data':'category.name'},
       {'title':'Title','name':'title','data':'title'},
-      {'title':'Created By','name':'admin.name','data':'admin.name'},
+      {'title':'Created By','name':'admin.id','data':'admin.id'},
       {'title':'Image','data': 'image', render: function (data, type, row, col){
           let returnData = '';
         return returnData += "<img src='/"+data+"' width='60' height='60'>";
