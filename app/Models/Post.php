@@ -8,7 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory,CommonTrait;
-    protected $guarded = [];
 
     public function admin(){
         return $this->belongsTo(Admin::class,'admin_id');
@@ -16,10 +15,6 @@ class Post extends Model
 
     public function category(){
         return $this->belongsTo(Category::class,'category_id');
-    }
-
-    public function tag(){
-        return $this->belongsTo(Tag::class,'id');
     }
 
     public function comment(){
